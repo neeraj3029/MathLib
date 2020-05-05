@@ -7,7 +7,7 @@ int yylex();
 
 %%
 
-
+"/*".*"*/" {;} 
 "@"                         {return func;}
 "evalExp"	        {return evaluateExpression;}
 "evalFun"           {return evaluateFunction;}

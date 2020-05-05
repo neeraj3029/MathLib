@@ -18,11 +18,12 @@ Write your test code in input.txt
 
 Calculus:
 ```
-f = @ (2, 3, 4); // defines a polynomial of the form 4x^2 + 3x + 2
+f = @ (2, 3, 4);  /* defines a polynomial of the form 4x^2 + 3x + 2 */
 
-x = evalFun(f 5!);    // returns f(120)
-v = evalDiff(f 2^3);   // returns f'(8)
-r = root f;          // returns one of the roots of polynomial, using the Secant Method
+x = evalFun(f 5!);    /* returns f(120) */
+v = evalDiff(f 2^3);   /* returns f'(8) */
+r = root f;          /* returns one of the roots of polynomial, using the Secant Method */
+over;
 ```
 
 
