@@ -1,8 +1,8 @@
+.DS_Store
 tags
 test
 *.o
-calc
 y.tab.h
 *.pdf
 ./a.out
-./mathlib
+mathlib
