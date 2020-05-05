@@ -34,7 +34,7 @@ a.pop;                              // removing the last element arom array
 show a;
 => 1.000000 2.000000 3.000000 2.000000 34.000000 
 
-R
+f = @(1,5,6);
 r = root f; // finding root
 show r;
 => -0.333333

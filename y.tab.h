@@ -78,7 +78,7 @@
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
-#line 29 "mathlib.y"
+#line 29 "mathLib.y"
 {float num; char id;}
 /* Line 1529 of yacc.c.  */
 #line 85 "y.tab.h"

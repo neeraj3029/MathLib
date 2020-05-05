@@ -104,7 +104,7 @@
 
 
 /* Copy the first part of user declarations.  */
-#line 1 "mathlib.y"
+#line 1 "mathLib.y"
 
 void yyerror (char *s);
 int yylex();
@@ -153,7 +153,7 @@ int findIndex(char a);
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
-#line 29 "mathlib.y"
+#line 29 "mathLib.y"
 {float num; char id;}
 /* Line 193 of yacc.c.  */
 #line 160 "y.tab.c"
@@ -1450,127 +1450,127 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 61 "mathlib.y"
+#line 61 "mathLib.y"
     {;}
     break;
 
   case 3:
-#line 62 "mathlib.y"
+#line 62 "mathLib.y"
     {exit(0);}
     break;
 
   case 4:
-#line 63 "mathlib.y"
+#line 63 "mathLib.y"
     {printf( "=> %f\n", ((yyvsp[(2) - (3)].num)));}
     break;
 
   case 5:
-#line 64 "mathlib.y"
+#line 64 "mathLib.y"
     {arrayMutation((yyvsp[(1) - (4)].id), (yyvsp[(3) - (4)].num));}
     break;
 
   case 6:
-#line 65 "mathlib.y"
+#line 65 "mathLib.y"
     { printArrayy((yyvsp[(2) - (3)].id));}
     break;
 
   case 7:
-#line 66 "mathlib.y"
+#line 66 "mathLib.y"
     {findTypeOf((yyvsp[(2) - (3)].id));}
     break;
 
   case 8:
-#line 67 "mathlib.y"
+#line 67 "mathLib.y"
     {;}
     break;
 
   case 9:
-#line 68 "mathlib.y"
+#line 68 "mathLib.y"
     {printf( "=> %f\n", ((yyvsp[(3) - (4)].num)));}
     break;
 
   case 10:
-#line 69 "mathlib.y"
+#line 69 "mathLib.y"
     {arrayMutation((yyvsp[(2) - (5)].id), (yyvsp[(4) - (5)].num));}
     break;
 
   case 11:
-#line 70 "mathlib.y"
+#line 70 "mathLib.y"
     { printArrayy((yyvsp[(3) - (4)].id)); }
     break;
 
   case 12:
-#line 71 "mathlib.y"
+#line 71 "mathLib.y"
     {findTypeOf((yyvsp[(3) - (4)].id));}
     break;
 
   case 13:
-#line 72 "mathlib.y"
+#line 72 "mathLib.y"
     {exit(0);}
     break;
 
   case 14:
-#line 78 "mathlib.y"
+#line 78 "mathLib.y"
     { createArray((yyvsp[(1) - (3)].id), 0); }
     break;
 
   case 15:
-#line 79 "mathlib.y"
+#line 79 "mathLib.y"
     { createArray((yyvsp[(1) - (3)].id), 1); }
     break;
 
   case 16:
-#line 80 "mathlib.y"
+#line 80 "mathLib.y"
     { createArray((yyvsp[(1) - (3)].id), 1);}
     break;
 
   case 18:
-#line 84 "mathlib.y"
+#line 84 "mathLib.y"
     {functionDiff((yyvsp[(3) - (4)].id));}
     break;
 
   case 20:
-#line 87 "mathlib.y"
+#line 87 "mathLib.y"
     {addElement((yyvsp[(1) - (1)].num));}
     break;
 
   case 21:
-#line 89 "mathlib.y"
+#line 89 "mathLib.y"
     {(yyval.num) = 0;}
     break;
 
   case 22:
-#line 90 "mathlib.y"
+#line 90 "mathLib.y"
     {(yyval.num) = 1;}
     break;
 
   case 23:
-#line 93 "mathlib.y"
+#line 93 "mathLib.y"
     {addElement((yyvsp[(3) - (3)].num));}
     break;
 
   case 24:
-#line 94 "mathlib.y"
+#line 94 "mathLib.y"
     {addElement((yyvsp[(1) - (1)].num));}
     break;
 
   case 25:
-#line 96 "mathlib.y"
+#line 96 "mathLib.y"
     {(yyval.num) = (yyvsp[(1) - (1)].num); }
     break;
 
   case 26:
-#line 97 "mathlib.y"
+#line 97 "mathLib.y"
     {(yyval.num) = (yyvsp[(1) - (3)].num) + (yyvsp[(3) - (3)].num); }
     break;
 
   case 27:
-#line 98 "mathlib.y"
+#line 98 "mathLib.y"
     {(yyval.num) = (yyvsp[(1) - (3)].num) - (yyvsp[(3) - (3)].num);}
     break;
 
   case 28:
-#line 99 "mathlib.y"
+#line 99 "mathLib.y"
     {	if((yyvsp[(3) - (3)].num) == 0) {
 										yyerror("Division by 0");
 										exit(0);
@@ -1580,72 +1580,72 @@ yyreduce:
     break;
 
   case 29:
-#line 105 "mathlib.y"
+#line 105 "mathLib.y"
     {(yyval.num) = power((yyvsp[(1) - (3)].num), (yyvsp[(3) - (3)].num));}
     break;
 
   case 30:
-#line 106 "mathlib.y"
+#line 106 "mathLib.y"
     {(yyval.num) = (yyvsp[(1) - (3)].num) * (yyvsp[(3) - (3)].num); }
     break;
 
   case 31:
-#line 107 "mathlib.y"
+#line 107 "mathLib.y"
     { (yyval.num) = (yyvsp[(2) - (3)].num); }
     break;
 
   case 32:
-#line 108 "mathlib.y"
+#line 108 "mathLib.y"
     {(yyval.num) = factorial((yyvsp[(1) - (2)].num)); }
     break;
 
   case 33:
-#line 109 "mathlib.y"
+#line 109 "mathLib.y"
     {(yyval.num) = power(2.71, (yyvsp[(3) - (4)].num)); }
     break;
 
   case 34:
-#line 110 "mathlib.y"
+#line 110 "mathLib.y"
     {(yyval.num) = calclogarithm((yyvsp[(3) - (4)].num)); }
     break;
 
   case 35:
-#line 111 "mathlib.y"
+#line 111 "mathLib.y"
     { (yyval.num) = -1*((yyvsp[(2) - (2)].num)); }
     break;
 
   case 36:
-#line 112 "mathlib.y"
+#line 112 "mathLib.y"
     {(yyval.num) = (yyvsp[(1) - (1)].num);}
     break;
 
   case 37:
-#line 113 "mathlib.y"
+#line 113 "mathLib.y"
     {(yyval.num) = functionVal((yyvsp[(3) - (5)].id), (yyvsp[(4) - (5)].num));}
     break;
 
   case 38:
-#line 114 "mathlib.y"
+#line 114 "mathLib.y"
     {(yyval.num) = rootsOfPolynomial((yyvsp[(2) - (2)].id));}
     break;
 
   case 39:
-#line 115 "mathlib.y"
+#line 115 "mathLib.y"
     {(yyval.num) = functionDiffVal((yyvsp[(3) - (5)].id), (yyvsp[(4) - (5)].num));}
     break;
 
   case 40:
-#line 119 "mathlib.y"
+#line 119 "mathLib.y"
     {(yyval.num) = (yyvsp[(1) - (1)].num);}
     break;
 
   case 41:
-#line 120 "mathlib.y"
+#line 120 "mathLib.y"
     {(yyval.num) = find((yyvsp[(1) - (1)].id), 1);}
     break;
 
   case 42:
-#line 121 "mathlib.y"
+#line 121 "mathLib.y"
     {(yyval.num) = find((yyvsp[(1) - (4)].id), (yyvsp[(3) - (4)].num));}
     break;
 
@@ -1865,7 +1865,7 @@ yyreturn:
 }
 
 
-#line 124 "mathlib.y"
+#line 124 "mathLib.y"
                      
 
 void showError(int type) {
