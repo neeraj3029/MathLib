@@ -9,8 +9,8 @@ There are two types of variables in the grammar, named Vector and Polynomials. D
 
 
 `git clone https://github.com/neeraj3029/MathLib.git` \
-Write your test code in `input.txt` \
 `cd MathLib` \
+Write your test code in `input.txt` \
 `lex mathLib.l` \
 `yacc -d mathlib.y` \
 `gcc lex.yy.c y.tab.c -o mathLib` \
