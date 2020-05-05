@@ -384,7 +384,7 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  25
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   130
+#define YYLAST   143
 
 /* YYNTOKENS -- Number of terminals.  */
 #define YYNTOKENS  37
@@ -464,8 +464,8 @@ static const yytype_int8 yyrhs[] =
       46,    23,    46,    -1,    46,    19,    46,    -1,    25,    46,
       26,    -1,    46,    30,    -1,    14,    25,    46,    26,    -1,
       15,    25,    46,    26,    -1,    22,    46,    -1,    47,    -1,
-       5,    25,    17,    45,    26,    -1,    12,    17,    -1,     6,
-      25,    17,    45,    26,    -1,    16,    -1,    17,    -1,    17,
+       5,    25,    17,    46,    26,    -1,    12,    17,    -1,     6,
+      25,    17,    46,    26,    -1,    16,    -1,    17,    -1,    17,
       27,    16,    28,    -1
 };
 
@@ -558,23 +558,23 @@ static const yytype_int8 yydefgoto[] =
 #define YYPACT_NINF -62
 static const yytype_int8 yypact[] =
 {
-      60,    45,    -9,    -4,     6,   -12,     1,    11,    24,    28,
-      37,    31,    33,   -62,    47,    45,    45,    43,   100,   -62,
-      44,    51,   -62,    30,    17,   -62,    45,    67,    69,    55,
-      -7,    56,   -62,    73,    74,   -62,    45,    45,    77,   -62,
-      59,   -62,    45,    45,    45,    45,    45,   -62,   -62,   -62,
-      75,    78,    45,   -62,   -62,   -62,   -62,    79,   -62,    80,
-      81,    83,    84,   -62,    17,   -62,    45,    45,    76,    88,
-      64,   -62,    18,    18,   -11,   -11,   -11,    45,   107,    36,
-     -62,    45,   -62,   -62,   -62,   -62,    85,    99,   101,   -62,
-     -62,   -62,   -21,   102,   -62,    45,   -19,   -62,   -62,   -62,
+      54,    44,    -9,    -4,     6,   -12,     1,    11,    26,    40,
+      51,    45,    55,   -62,    62,    44,    44,    49,   113,   -62,
+      50,    58,   -62,    30,    17,   -62,    44,    75,    76,    69,
+      -7,    70,   -62,    87,    88,   -62,    44,    44,    90,   -62,
+      53,   -62,    44,    44,    44,    44,    44,   -62,   -62,   -62,
+      91,    92,    44,   -62,   -62,   -62,   -62,    93,   -62,    81,
+      82,    94,    96,   -62,    17,   -62,    44,    44,    65,    77,
+      97,   -62,    18,    18,   -11,   -11,   -11,    44,   112,    42,
+     -62,    44,   -62,   -62,   -62,   -62,    98,    89,   101,   -62,
+     -62,   -62,   -21,   111,   -62,    44,   -19,   -62,   -62,   -62,
      -62,   -62,   -62,   -62
 };
 
 /* YYPGOTO[NTERM-NUM].  */
-static const yytype_int8 yypgoto[] =
+static const yytype_int16 yypgoto[] =
 {
-     -62,   -62,    95,   -62,   -62,   -62,    41,   -61,    -1,   -13,
+     -62,   -62,   132,   -62,   -62,   -62,    78,   -61,    -1,   -13,
      -62
 };
 
@@ -589,16 +589,17 @@ static const yytype_uint8 yytable[] =
       28,    23,    46,    21,    29,    95,    92,    95,    30,    47,
       96,    24,    56,    68,    69,    60,    64,    57,    58,    72,
       73,    74,    75,    76,    50,     8,     9,    51,    22,    44,
-      45,    46,    10,    32,    11,    12,    13,    14,    47,    33,
-       8,     9,    15,    34,    35,    16,    36,    10,    37,    11,
-      12,    13,    14,     1,    52,    87,    88,    15,     2,     3,
-      16,    94,    95,     4,    38,    41,    48,     5,    42,    43,
-      44,    45,    46,    49,    61,    71,    62,    63,    65,    47,
-      66,    67,    91,    70,   102,    42,    43,    44,    45,    46,
-      77,    31,    89,    78,    81,    86,    47,    42,    43,    44,
-      45,    46,    82,    83,    90,    84,    85,    97,    47,    42,
-      43,    44,    45,    46,    93,    98,     0,    99,   101,     0,
-      47
+      45,    46,    10,    32,    11,    12,    13,    14,    47,     8,
+       9,    33,    15,    87,    88,    16,    10,     1,    11,    12,
+      13,    14,     2,     3,    52,    34,    15,     4,    35,    16,
+      36,     5,    42,    43,    44,    45,    46,    94,    95,    71,
+      37,    41,    48,    47,    42,    43,    44,    45,    46,    38,
+      49,    89,    61,    62,   102,    47,    42,    43,    44,    45,
+      46,    63,    65,    90,    66,    67,    70,    47,    42,    43,
+      44,    45,    46,    82,    83,    98,    77,    78,    81,    47,
+      42,    43,    44,    45,    46,    91,    84,    99,    85,    93,
+      97,    47,    42,    43,    44,    45,    46,   101,    31,     0,
+       0,     0,    86,    47
 };
 
 static const yytype_int8 yycheck[] =
@@ -607,16 +608,17 @@ static const yytype_int8 yycheck[] =
        9,    18,    23,    17,    13,    36,    77,    36,    17,    30,
       81,    33,    23,    36,    37,    26,    33,    10,    11,    42,
       43,    44,    45,    46,     4,     5,     6,     7,    32,    21,
-      22,    23,    12,    32,    14,    15,    16,    17,    30,    25,
-       5,     6,    22,    25,    17,    25,    25,    12,    25,    14,
-      15,    16,    17,     3,    34,    66,    67,    22,     8,     9,
-      25,    35,    36,    13,    27,    32,    32,    17,    19,    20,
-      21,    22,    23,    32,    17,    26,    17,    32,    32,    30,
-      17,    17,    28,    16,    95,    19,    20,    21,    22,    23,
-      25,     6,    26,    25,    25,    64,    30,    19,    20,    21,
-      22,    23,    32,    32,    26,    32,    32,    32,    30,    19,
-      20,    21,    22,    23,    17,    26,    -1,    26,    26,    -1,
-      30
+      22,    23,    12,    32,    14,    15,    16,    17,    30,     5,
+       6,    25,    22,    66,    67,    25,    12,     3,    14,    15,
+      16,    17,     8,     9,    34,    25,    22,    13,    17,    25,
+      25,    17,    19,    20,    21,    22,    23,    35,    36,    26,
+      25,    32,    32,    30,    19,    20,    21,    22,    23,    27,
+      32,    26,    17,    17,    95,    30,    19,    20,    21,    22,
+      23,    32,    32,    26,    17,    17,    16,    30,    19,    20,
+      21,    22,    23,    32,    32,    26,    25,    25,    25,    30,
+      19,    20,    21,    22,    23,    28,    32,    26,    32,    17,
+      32,    30,    19,    20,    21,    22,    23,    26,     6,    -1,
+      -1,    -1,    64,    30
 };
 
 /* YYSTOS[STATE-NUM] -- The (internal number of the) accessing
@@ -631,7 +633,7 @@ static const yytype_uint8 yystos[] =
        4,     7,    34,    40,    41,    42,    45,    10,    11,    43,
       45,    17,    17,    32,    33,    32,    17,    17,    46,    46,
       16,    26,    46,    46,    46,    46,    46,    25,    25,    44,
-      45,    25,    32,    32,    32,    32,    43,    45,    45,    26,
+      45,    25,    32,    32,    32,    32,    43,    46,    46,    26,
       26,    28,    44,    17,    35,    36,    44,    32,    26,    26,
       26,    26,    45,    26
 };
@@ -1649,7 +1651,7 @@ yyreduce:
 
 
 /* Line 1267 of yacc.c.  */
-#line 1653 "y.tab.c"
+#line 1655 "y.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1876,6 +1878,7 @@ void showError(int type) {
 }
 
 void clearStorage(){
+	// This function clears the storage when program starts
 	for(int i = 0; i < 52; ++i)
 		for(int j = 0;j < 51; ++j) {
 			elements[i][j] = 0;
@@ -1883,12 +1886,14 @@ void clearStorage(){
 }
 
 int findIndex(char a) {
+	// This function returns the index of corresponing variable name in storage
 	if(islower(a)) 
 		return (a+26-'a');
 	return (a-'A');
 } 
 
 void findTypeOf(char variableName) {
+	// This function returns the type of the input variable - vector or polynomial
 	int ind = findIndex(variableName);
 	int type = elements[ind][50];
 	if(type == 0) printf("=> Vector\n");
@@ -1897,6 +1902,7 @@ void findTypeOf(char variableName) {
 
 
 void functionDiff(char variableName) {
+	// This function  assigns the differential function to a variable
 	int ind = findIndex(variableName);
 	if(elements[ind][50] == 0) {
 		
@@ -1907,6 +1913,7 @@ void functionDiff(char variableName) {
 }
 
 float functionDiffVal(char variableName, float val) {
+	// This function returns the value of differential at a particular point.
 	int ind = findIndex(variableName);
 	if(elements[ind][50] == 0) {
 		showError(0);
@@ -1916,11 +1923,11 @@ float functionDiffVal(char variableName, float val) {
 	for(int i = 2; i < 50; ++i){ 
 		sum += elements[ind][i]*(i-1)*power(val, (i-2));
 	}
-	// printf("%f\n", sum);
 	return sum;
 }
 
 void appendA(char variableName) {
+	// This function appends elements to an array
 	int ind = findIndex(variableName);
 	int length = elements[ind][0];
 	for(int i = 0;i < position; ++i) {
@@ -1931,6 +1938,7 @@ void appendA(char variableName) {
 }
 
 void popAction(char variableName) {
+	// This function removes the last element from an array
 	int ind = findIndex(variableName);
 	int length = elements[ind][0];
 	elements[ind][length] = 0;
@@ -1938,6 +1946,7 @@ void popAction(char variableName) {
 }
 
 void arrayMutation(char variableName, int type) {
+	// This function is the gateway to all array mutations
 	int ind = findIndex(variableName);
 	if(elements[ind][50] == 1) {
 		showError(1);
@@ -1951,11 +1960,13 @@ void arrayMutation(char variableName, int type) {
 }
 
 float power(float a, float b) {
+	// power function
 	float power = pow(a,b);
 	return power;
 }
 
 float factorial(float n) {
+	// This function returns the factorial of a number. If the number in not an integer, it typecasts the number to closest int for calculation
 	if(n < 0) {
 		printf("Factorial of a negative digits is not defined\n");
 		exit(0);
@@ -1969,6 +1980,7 @@ float factorial(float n) {
 
 
 float calclogarithm (float val) {
+	// this function returns the logarithmic value
 	if(val <= 0) {
 		printf("Logarithm of negative digits is not defined\n");
 		exit(0);
@@ -1977,7 +1989,7 @@ float calclogarithm (float val) {
 }
 
 float find(char variableName, int index) {
-	// this will return the number at a particular index in 
+	// this will return the number at a particular index in the given array
 	int ind = findIndex(variableName);
 	if(elements[ind][50] == 1) {
 		showError(1);

@@ -110,9 +110,9 @@ E    	: E '+' E			{$$ = $1 + $3; }
 		| logarithm '(' E ')'	{$$ = calclogarithm($3); }
 		| '-' E %prec '_'     { $$ = -1*($2); }
 		| element                  {$$ = $1;}
-		| evaluateFunction '(' variable  expression ')' 		{$$ = functionVal($3, $4);}
+		| evaluateFunction '(' variable  E ')' 		{$$ = functionVal($3, $4);}
 		| root variable 		{$$ = rootsOfPolynomial($2);}
-		| evaluateDifferentiation '(' variable expression')'  {$$ = functionDiffVal($3, $4);}
+		| evaluateDifferentiation '(' variable E')'  {$$ = functionDiffVal($3, $4);}
 		
        	;
 
@@ -133,6 +133,7 @@ void showError(int type) {
 }
 
 void clearStorage(){
+	// This function clears the storage when program starts
 	for(int i = 0; i < 52; ++i)
 		for(int j = 0;j < 51; ++j) {
 			elements[i][j] = 0;
@@ -140,12 +141,14 @@ void clearStorage(){
 }
 
 int findIndex(char a) {
+	// This function returns the index of corresponing variable name in storage
 	if(islower(a)) 
 		return (a+26-'a');
 	return (a-'A');
 } 
 
 void findTypeOf(char variableName) {
+	// This function returns the type of the input variable - vector or polynomial
 	int ind = findIndex(variableName);
 	int type = elements[ind][50];
 	if(type == 0) printf("=> Vector\n");
@@ -154,6 +157,7 @@ void findTypeOf(char variableName) {
 
 
 void functionDiff(char variableName) {
+	// This function  assigns the differential function to a variable
 	int ind = findIndex(variableName);
 	if(elements[ind][50] == 0) {
 		
@@ -164,6 +168,7 @@ void functionDiff(char variableName) {
 }
 
 float functionDiffVal(char variableName, float val) {
+	// This function returns the value of differential at a particular point.
 	int ind = findIndex(variableName);
 	if(elements[ind][50] == 0) {
 		showError(0);
@@ -173,11 +178,11 @@ float functionDiffVal(char variableName, float val) {
 	for(int i = 2; i < 50; ++i){ 
 		sum += elements[ind][i]*(i-1)*power(val, (i-2));
 	}
-	// printf("%f\n", sum);
 	return sum;
 }
 
 void appendA(char variableName) {
+	// This function appends elements to an array
 	int ind = findIndex(variableName);
 	int length = elements[ind][0];
 	for(int i = 0;i < position; ++i) {
@@ -188,6 +193,7 @@ void appendA(char variableName) {
 }
 
 void popAction(char variableName) {
+	// This function removes the last element from an array
 	int ind = findIndex(variableName);
 	int length = elements[ind][0];
 	elements[ind][length] = 0;
@@ -195,6 +201,7 @@ void popAction(char variableName) {
 }
 
 void arrayMutation(char variableName, int type) {
+	// This function is the gateway to all array mutations
 	int ind = findIndex(variableName);
 	if(elements[ind][50] == 1) {
 		showError(1);
@@ -208,11 +215,13 @@ void arrayMutation(char variableName, int type) {
 }
 
 float power(float a, float b) {
+	// power function
 	float power = pow(a,b);
 	return power;
 }
 
 float factorial(float n) {
+	// This function returns the factorial of a number. If the number in not an integer, it typecasts the number to closest int for calculation
 	if(n < 0) {
 		printf("Factorial of a negative digits is not defined\n");
 		exit(0);
@@ -226,6 +235,7 @@ float factorial(float n) {
 
 
 float calclogarithm (float val) {
+	// this function returns the logarithmic value
 	if(val <= 0) {
 		printf("Logarithm of negative digits is not defined\n");
 		exit(0);
@@ -234,7 +244,7 @@ float calclogarithm (float val) {
 }
 
 float find(char variableName, int index) {
-	// this will return the number at a particular index in 
+	// this will return the number at a particular index in the given array
 	int ind = findIndex(variableName);
 	if(elements[ind][50] == 1) {
 		showError(1);
