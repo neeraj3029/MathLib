@@ -1,37 +1,7 @@
-a = 4;
-a=2;
-b=3;
-c=4;
-d = (a+b) + c! + (b+c);
-show d;
-e = (a^b) + c! - (b*c); 
-show e;
-evalExp (a^b) + c! - (b*c);
-b = {2!, (3+2), 3^2, 6};
-show b;  
-d = {2, 1, 53, 12};
-evalExp d<0> + d<1> - (d<3> * d<4>);
-f = @ (2, 3, 4);
-v = evalFun(f 5);
-show v;
-d = evalDiff(f 3);
-show d;
-e = diff(f);
-v = evalFun(e 3);
-show v;
-a = {1,2,3}; 
-a.append(2,34,234);
+b = 3;
+c = log(b);
+a={1,b!,3,c^3};
+v = a<0>;             /* returns the first element of array i.e. 1 */
+a.append(5, 6);   /* changes a to {1,6,3,0.1.32,5,6} */
+a.pop;            /* changes a to {1,6,3,1.32,5} */
 show a;
-a.pop;
-show a;
-f = @(1,5,6);
-r = root f;
-show r;
-a = {1,2,3};
-typeof a;
-b = @ (3,4,5);
-typeof b;
-a.append(3,4,2);
-b.append(3,4,2);
-
-  

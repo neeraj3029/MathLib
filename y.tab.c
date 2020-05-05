@@ -1905,7 +1905,7 @@ void functionDiff(char variableName) {
 	// This function  assigns the differential function to a variable
 	int ind = findIndex(variableName);
 	if(elements[ind][50] == 0) {
-		
+		showError(0);
 	}
 	for(int i = 1; i < 50-1; ++i){ 
 		array[position++] = elements[ind][i+1]*i;
@@ -1921,6 +1921,7 @@ float functionDiffVal(char variableName, float val) {
 	
 	float sum = 0;
 	for(int i = 2; i < 50; ++i){ 
+		if(elements[ind][i] != 0)
 		sum += elements[ind][i]*(i-1)*power(val, (i-2));
 	}
 	return sum;
@@ -2034,6 +2035,7 @@ float functionVal(char variableName, float val) {
 	
 	float sum = 0;
 	for(int i = 1; i < 50; ++i) {
+		if(elements[ind][i] != 0)
 		sum += (elements[ind][i] * power(val, i-1)); 
 	}
 	return sum;
