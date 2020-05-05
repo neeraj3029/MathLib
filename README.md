@@ -49,6 +49,8 @@ a.append(5, 6);   /* changes a to {1,6,3,0.108614,5,6} */
 a.pop;            /* changes a to {1,6,3,0.108614,5} */
 ```
 
+Please feel free to raise issues to suggest grammar changes or new features.
+
 
 
 
