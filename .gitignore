@@ -3,3 +3,6 @@ test
 *.o
 calc
 y.tab.h
+.pdf
+./a.out
+./mathlib
