@@ -52,9 +52,8 @@
      exit_command = 268,
      exponent = 269,
      logarithm = 270,
-     number = 271,
-     element = 272,
-     variable = 273
+     digits = 271,
+     variable = 272
    };
 #endif
 /* Tokens.  */
@@ -71,9 +70,8 @@
 #define exit_command 268
 #define exponent 269
 #define logarithm 270
-#define number 271
-#define element 272
-#define variable 273
+#define digits 271
+#define variable 272
 
 
 
@@ -83,7 +81,7 @@ typedef union YYSTYPE
 #line 29 "mathlib.y"
 {float num; char id;}
 /* Line 1529 of yacc.c.  */
-#line 87 "y.tab.h"
+#line 85 "y.tab.h"
 	YYSTYPE;
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1

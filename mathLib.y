@@ -41,10 +41,10 @@ int findIndex(char a);
 %token exit_command
 %token exponent
 %token logarithm
-%token <num> number 
-%token <num> element
+%token <num> digits 
+
 %token <id> variable
-%type <num> statement E term expression operation
+%type <num> statement E element expression operation
 %type <id> assignment
 
 %right '='
@@ -59,7 +59,7 @@ int findIndex(char a);
 %%
 
 statement    : assignment ';'											{;}
-		| exit_command ';'												{exit(EXIT_SUCCESS);}
+		| exit_command ';'												{exit(0);}
 		| evaluateExpression expression';'								{printf( "=> %f\n", ($2));}
 		| variable '.' operation  ';'									{arrayMutation($1, $3);}
 		| show variable';'											{ printArrayy($2);}
@@ -69,7 +69,7 @@ statement    : assignment ';'											{;}
 		| statement variable '.' operation  ';'						{arrayMutation($2, $4);}	
 		| statement show variable';'									{ printArrayy($3); }
 		| statement type_of variable	';'								{findTypeOf($3);}
-		| statement exit_command ';'									{exit(EXIT_SUCCESS);}
+		| statement exit_command ';'									{exit(0);}
         ;
 
 
@@ -98,7 +98,7 @@ E    	: E '+' E			{$$ = $1 + $3; }
        	| E '-' E      		{$$ = $1 - $3;}
 		| E '/' E      		{	if($3 == 0) {
 										yyerror("Division by 0");
-										exit(EXIT_SUCCESS);
+										exit(0);
 									}
 									$$ = $1 / $3;
 								}
@@ -109,22 +109,27 @@ E    	: E '+' E			{$$ = $1 + $3; }
 		| exponent '(' E ')'	{$$ = power(2.71, $3); }
 		| logarithm '(' E ')'	{$$ = calclogarithm($3); }
 		| '-' E %prec '_'     { $$ = -1*($2); }
-		| term                  {$$ = $1;}
+		| element                  {$$ = $1;}
 		| evaluateFunction '(' variable  expression ')' 		{$$ = functionVal($3, $4);}
 		| root variable 		{$$ = rootsOfPolynomial($2);}
 		| evaluateDifferentiation '(' variable expression')'  {$$ = functionDiffVal($3, $4);}
 		
        	;
 
-term   	: number                	{$$ = $1;}
-		| variable				{$$ = find($1, 1);} 
-		| variable '<' number '>' {$$ = find($1, $3);}
-        ;
+element   	: digits                	{$$ = $1;}
+			| variable				{$$ = find($1, 1);} 
+			| variable '<' digits '>' {$$ = find($1, $3);}
+			;
 
 %%                     
 
 void showError(int type) {
-
+	if(type == 0) {
+		printf("Given argument is not a Polynomial\n");
+		exit(0);
+	}
+	printf("Given argument is not an array.\n");
+	exit(0);
 }
 
 void clearStorage(){
@@ -151,8 +156,7 @@ void findTypeOf(char variableName) {
 void functionDiff(char variableName) {
 	int ind = findIndex(variableName);
 	if(elements[ind][50] == 0) {
-		printf("Given argument is not a Polynomial (Array is given)\n");
-		exit(EXIT_SUCCESS);
+		
 	}
 	for(int i = 1; i < 50-1; ++i){ 
 		array[position++] = elements[ind][i+1]*i;
@@ -162,8 +166,7 @@ void functionDiff(char variableName) {
 float functionDiffVal(char variableName, float val) {
 	int ind = findIndex(variableName);
 	if(elements[ind][50] == 0) {
-		printf("Given argument is not a Polynomial (Array is given)\n");
-		exit(EXIT_SUCCESS);
+		showError(0);
 	}
 	
 	float sum = 0;
@@ -194,8 +197,7 @@ void popAction(char variableName) {
 void arrayMutation(char variableName, int type) {
 	int ind = findIndex(variableName);
 	if(elements[ind][50] == 1) {
-		printf("Given argument is not an array. (Polynomial is given)\n");
-		exit(EXIT_SUCCESS);
+		showError(1);
 	}
 	switch(type) {
 		case(0):
@@ -212,8 +214,8 @@ float power(float a, float b) {
 
 float factorial(float n) {
 	if(n < 0) {
-		printf("Factorial of a negative number is not defined\n");
-		exit(EXIT_SUCCESS);
+		printf("Factorial of a negative digits is not defined\n");
+		exit(0);
 	}
 	float fac = 1;
 	for(float i = 1; i <= (int)n; ++i) {
@@ -225,24 +227,23 @@ float factorial(float n) {
 
 float calclogarithm (float val) {
 	if(val <= 0) {
-		printf("Logarithm of negative numbers is not defined\n");
-		exit(EXIT_SUCCESS);
+		printf("Logarithm of negative digits is not defined\n");
+		exit(0);
 	}
 	return log(val);
 }
 
 float find(char variableName, int index) {
+	// this will return the number at a particular index in 
 	int ind = findIndex(variableName);
 	if(elements[ind][50] == 1) {
-		printf("Given argument is not an array. (Polynomial is given)\n");
-		exit(EXIT_SUCCESS);
+		showError(1);
 	}
-	
-	// printf("%d, %d", index, elements[ind][index]);
 	return elements[ind][index];
 }
 
 void createArray(char variableName, int type) {
+	// this will allocate values from array to given position of identifier in storage
 	int ind = findIndex(variableName);
 	elements[ind][0] = position;
 	for(int i = 1; i < position+1; ++i){
@@ -254,11 +255,12 @@ void createArray(char variableName, int type) {
 }
 
 void addElement(float val) {
+	// adding element to array
 	array[position++] = val;
 }
 
 void printArrayy(char variableName) {
-	
+	// printing Array
 	int ind = findIndex(variableName);
 	float length = elements[ind][0];
 	printf("=> ");
@@ -269,11 +271,10 @@ void printArrayy(char variableName) {
 }
 
 float functionVal(char variableName, float val) {
-	// printf("ok %c %f\n", variableName, val);
+	// Finding value returned by a function at particular argument
 	int ind = findIndex(variableName);
 	if(elements[ind][50] == 0) {
-		printf("Given argument is not a Polynomial (Array is given)\n");
-		exit(EXIT_SUCCESS);
+		showError(0);
 	}
 	
 	float sum = 0;

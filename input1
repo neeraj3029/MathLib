@@ -1,0 +1,2 @@
+a = 4;
+evalExp a! + evalDiff(f 3) - evalFun(f 2);

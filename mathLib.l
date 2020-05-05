@@ -24,13 +24,12 @@ int yylex();
 [a-zA-Z]			                        {yylval.id = yytext[0]; return variable;}
 ([1-9][0-9]+|[0-9])                          {
                                                 yylval.num = (float)atof(yytext);
-                                              
-                                                return number;
+                                                return digits;
                                             }
 ([1-9][0-9]+|[0-9])?\.[0-9]+               {    
                                                
                                                 yylval.num = (float)atof(yytext);
-                                                 return number;
+                                                 return digits;
                                             }
 [ \t\n]                ;
 [-+=;!*(/){}^<>@_.,]           	   {return yytext[0];}

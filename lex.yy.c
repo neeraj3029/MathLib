@@ -844,42 +844,40 @@ YY_RULE_SETUP
 #line 25 "mathlib.l"
 {
                                                 yylval.num = (float)atof(yytext);
-                                              
-                                                return number;
+                                                return digits;
                                             }
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 30 "mathlib.l"
+#line 29 "mathlib.l"
 {    
                                                
                                                 yylval.num = (float)atof(yytext);
-                                                
-                                                 return number;
+                                                 return digits;
                                             }
 	YY_BREAK
 case 17:
 /* rule 17 can match eol */
 YY_RULE_SETUP
-#line 36 "mathlib.l"
+#line 34 "mathlib.l"
 ;
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 37 "mathlib.l"
+#line 35 "mathlib.l"
 {return yytext[0];}
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 38 "mathlib.l"
-{ECHO; yyerror ("unexpected character");}
+#line 36 "mathlib.l"
+{ECHO; yyerror ("Invalid Input\n");}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 40 "mathlib.l"
+#line 38 "mathlib.l"
 ECHO;
 	YY_BREAK
-#line 883 "lex.yy.c"
+#line 881 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1876,7 +1874,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 40 "mathlib.l"
+#line 38 "mathlib.l"
 
 
 int yywrap (void) {return 1;}
