@@ -6,10 +6,11 @@ There are two types of variables in the grammar, named Vector and Polynomials. D
 
 ### Using MathLib
 
-Write your test code in `input.txt`
 
-`git clone ` \
+
+`git clone https://github.com/neeraj3029/MathLib.git` \
 `cd MathLib` \
+Write your test code in `input.txt` \
 `lex mathLib.l` \
 `yacc -d mathlib.y` \
 `gcc lex.yy.c y.tab.c -o mathLib` \
