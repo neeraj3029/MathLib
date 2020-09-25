@@ -1,6 +1,6 @@
 # MathLib
 
-MathLib is parser and lexical analyser that performs complex mathematical operations by using basic mathematical symbols built using Lex and Yacc. The target is to make it more readable for mathematicians and help them code in the same manner as they solve questions on paper. 
+MathLib is parser and lexical analyser that performs complex mathematical operations by using basic mathematical symbols built using Lex and Yacc. The goal is to make it more readable for mathematicians and help them code in the same manner as they write equations on paper. 
 
 There are two types of variables in the grammar, named Vector and Polynomials. Declaration of polynomials begin with ‘@’.
 
